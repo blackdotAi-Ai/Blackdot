@@ -153,8 +153,10 @@ ul { list-style: none; }
   width: 36px;
   height: 36px;
   filter: drop-shadow(0 0 8px var(--cyan-glow));
+  transition: transform 0.6s ease, filter 0.6s ease;
+  transform-style: preserve-3d;
+  perspective: 600px;
 }
-.logo-icon.small { width: 28px; height: 28px; }
 
 .logo-text {
   font-family: var(--font-display);
@@ -257,7 +259,7 @@ ul { list-style: none; }
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
   opacity: 0.5;
-  animation: gridFade 4s ease-in-out infinite alternate;
+animation: logoFloat 4s ease-in-out infinite;
 }
 @keyframes gridFade {
   from { opacity: 0.3; }
