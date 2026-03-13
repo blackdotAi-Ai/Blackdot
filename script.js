@@ -16,9 +16,13 @@
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run once on load
-})();
+window.addEventListener("scroll", () => {
+  const logo = document.querySelector(".logo-icon");
+
+  let scroll = window.scrollY;
+
+  logo.style.transform = `rotateY(${scroll * 0.5}deg)`;
+});
 
 
 /* ============================================================
