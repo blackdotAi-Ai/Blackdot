@@ -10,21 +10,21 @@
    ============================================================ */
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
+  const logo = document.querySelector('.logo-icon');
+
   if (!navbar) return;
 
   const onScroll = () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+    if (logo) {
+      const scroll = window.scrollY;
+      logo.style.transform = `rotateY(${scroll * 0.5}deg)`;
+    }
   };
 
-window.addEventListener("scroll", () => {
-  const logo = document.querySelector(".logo-icon");
-
-  let scroll = window.scrollY;
-
-  logo.style.transform = `rotateY(${scroll * 0.5}deg)`;
-});
-
-
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
 /* ============================================================
    2. HAMBURGER — toggle mobile menu
    ============================================================ */
