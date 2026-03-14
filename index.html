@@ -281,5 +281,124 @@
   </footer>
 
   <script src="script.js"></script>
+/* ======================================================
+GHOST AI — MAIN SCRIPT
+====================================================== */
+
+/* ================= NAVBAR SCROLL EFFECT ================= */
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+
+if(window.scrollY > 60){
+navbar.classList.add("scrolled");
+}else{
+navbar.classList.remove("scrolled");
+}
+
+});
+
+/* ================= MOBILE MENU ================= */
+
+const hamburger = document.querySelector(".hamburger");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+if(hamburger){
+
+hamburger.addEventListener("click", () => {
+
+hamburger.classList.toggle("open");
+mobileMenu.classList.toggle("open");
+
+});
+
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+});
+
+},{threshold:0.15});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+/* ================= COUNTDOWN TIMER ================= */
+
+const targetDate = new Date("2026-01-01T00:00:00").getTime();
+
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minsEl = document.getElementById("minutes");
+const secsEl = document.getElementById("seconds");
+
+function updateCountdown(){
+
+const now = new Date().getTime();
+const diff = targetDate - now;
+
+const days = Math.floor(diff / (1000606024));
+const hours = Math.floor((diff % (1000606024))/(10006060));
+const mins = Math.floor((diff % (10006060))/(100060));
+const secs = Math.floor((diff % (100060))/1000);
+
+if(daysEl){
+daysEl.textContent = days;
+hoursEl.textContent = hours;
+minsEl.textContent = mins;
+secsEl.textContent = secs;
+}
+
+}
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+/* ================= EMAIL FORM ================= */
+
+const form = document.querySelector(".signup-form");
+const message = document.querySelector(".form-message");
+
+if(form){
+
+form.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+const emailInput = form.querySelector("input");
+const email = emailInput.value;
+
+if(email.includes("@")){
+
+message.textContent = "SUCCESS — YOU ARE ON THE LIST";
+message.classList.add("success");
+message.classList.remove("error");
+
+emailInput.value="";
+
+}else{
+
+message.textContent = "INVALID EMAIL";
+message.classList.add("error");
+message.classList.remove("success");
+
+}
+
+});
+
+}
 </body>
 </html>
