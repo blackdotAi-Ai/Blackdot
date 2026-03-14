@@ -281,7 +281,9 @@ z-index:1000;
   white-space: nowrap;
 }
 
-.nav-link:hover,
+.nav-link:hover{
+  color:#00f5ff;
+}
 .nav-link.active {
   color: var(--cyan);
   background: var(--cyan-dim);
