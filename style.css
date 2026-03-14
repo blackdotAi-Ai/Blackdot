@@ -240,7 +240,11 @@ input { font-family: inherit; }
   flex-shrink: 0;
 }
 
-.logo-icon { width: 36px; height: 36px; }
+.logo-icon img{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+}
 
 .logo-text {
   font-family: var(--font-display);
