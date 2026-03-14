@@ -204,14 +204,14 @@ input { font-family: inherit; }
 /* ----------------------------------------------------------------
    NAVBAR
 ---------------------------------------------------------------- */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--nav-height);
-  z-index: 1000;
-  transition: background var(--transition), box-shadow var(--transition);
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(10,10,20,0.6);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid                        rgba(255,255,255,0.05);
+z-index:1000;
 }
 
 .navbar.scrolled {
@@ -231,15 +231,21 @@ input { font-family: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+ }
+ .nav-container{
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+   max-width:1200px;
+   margin:auto;
+   padding:0 20px;
 }
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
 }
-
 .logo-icon img{
   width:40px;
   height:40px;
